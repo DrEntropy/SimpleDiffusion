@@ -1,16 +1,17 @@
-# Simple Diffusion
-This project works through parts the tutorial material from [A Beginner's Friendly Introduction to Diffusion Models in JAX](https://axeldonath.com/jax-diffusion-models-pydata-boston-2025/) by Axel Donath, presented at PyData Boston 2025.  The notebook `diffusion_demo.ipynb` just works through parts in parallel and should be runnable on a CPU.  You will need to follow along with the original blog post to get the 'sound track'. 
+# Score Matching and Langevin Dynamics
+A simple 1D example demonstrating how to sample from an unknown distribution using score matching and Langevin dynamics, implemented in JAX. Based in part on [A Beginner's Friendly Introduction to Diffusion Models in JAX](https://axeldonath.com/jax-diffusion-models-pydata-boston-2025/) by Axel Donath.
 
+The notebook `diffusion_demo.ipynb` covers:
+1. **Langevin dynamics** — sampling from a distribution using only its score function $\nabla_x \log p(x)$
+2. **Score matching** — learning the score function from data (no access to the density), using the implicit score matching loss (Hyvärinen 2005)
+3. **Putting it together** — plugging the learned score into Langevin sampling to recover the target distribution from pure noise
+
+The target distribution is a simple 1D Gaussian mixture model. Everything runs on CPU.
 
 ## Resources
 
 - [Original Tutorial](https://axeldonath.com/jax-diffusion-models-pydata-boston-2025/)
 - [JAX Documentation](https://docs.jax.dev/en/latest/)
-- [DDPM Paper](https://arxiv.org/abs/2006.11239)
-- [DDPM Blog Post by Lilian Weng](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)
+- [Bayesian Learning via Stochastic Gradient Langevin Dynamics](https://www.stats.ox.ac.uk/~teh/research/compstats/WelTeh2011a.pdf)
 - [Yang Song's Blog Post on Score-Based Generative Modeling](https://yang-song.net/blog/2021/score/)
-- [Bayesian Learning via Stochastic Gradient Langevin Dynamics ](https://www.stats.ox.ac.uk/~teh/research/compstats/WelTeh2011a.pdf)
 - [Recommended Prep Videos by Deepia](https://www.youtube.com/@Deepia-ls2fo)
-  - Denoising Autoencoders
-  - Langevin Algorithm
-  - Diffusion Models
