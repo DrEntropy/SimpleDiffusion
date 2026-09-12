@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.24.2"
+__generated_with = "0.24.0"
 app = marimo.App()
 
 
@@ -49,7 +49,7 @@ def _(jnp, np):
         # later we compute the gradient, which requires a returning a scalar value
         if values.shape == (1,):
             return values[0]
-    
+
         return values
 
     return (gmm,)
@@ -292,7 +292,7 @@ def _(jnp, random):
 def _(jax, mlp):
     def score_matching_loss(params, samples):
         """Implicit score matching loss (Hyvärinen 2005).
-    
+
         In 1D the general objective simplifies to:
           J = E[ s(x)^2 / 2 + ds/dx ]
         where s(x) is the model's score estimate and ds/dx is its derivative w.r.t. x.
@@ -355,6 +355,7 @@ def _(jax, jnp, losses, mlp, params, plt, score_fun):
     axes[1].set_xlabel('Epoch')
     axes[1].set_ylabel('Loss')
     plt.tight_layout()
+    fig
     return (learned_score,)
 
 
